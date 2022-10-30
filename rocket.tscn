@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://rocket.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.1
+height = 2.0
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.1
+mid_height = 2.0
+
+[sub_resource type="SphereShape" id=3]
+radius = 10.0
+
+[node name="rocket" type="Area"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+
+[node name="explosion" type="Area" parent="."]
+monitoring = false
+
+[node name="CollisionShape" type="CollisionShape" parent="explosion"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_rocket_body_entered"]
+[connection signal="body_entered" from="explosion" to="." method="_on_explosion_body_entered"]
