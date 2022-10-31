@@ -1,12 +1,11 @@
-#extends MeshInstance
-#
-##pewpew
-#
-#export var bullet:PackedScene
-#
-#func _physics_process(delta):
-#	if Input.is_action_just_pressed("pewpew") && self.visible == true:
-#		self.visible = false
-#	else:
-#		if Input.is_action_just_pressed("pewpew") && self.visible == false:
-#			self.visible = true
+extends Area
+
+func _physics_process(delta):
+	translation += get_transform().basis.z*50*delta
+
+#func _on_explosion_body_entered(body):
+#	var bodies = $explosion.get_overlapping_bodies()
+#	for body in bodies:
+#		if body.get_class() == "RigidBody":
+#			body.apply_impulse(Vector3.ZERO,(body.global_transform.origin-global_transform.origin).normalized()*10)
+#		queue_free()

@@ -21,3 +21,20 @@ func _set_health(value):
 		if health == 0:
 			kill()
 			emit_signal("killed")
+
+
+#vehicle driving
+func _physics_process(delta):
+		steering = Input.get_axis("left2","right2") * 0.4
+		engine_force = Input.get_axis("back2","forward2") * 100
+		if health == 0:
+			engine_force = 0
+
+#vehicle cameras
+func _process(delta):
+	if Input.is_action_just_pressed("changeCamera2"):
+		$Camera.set_current(true)
+
+
+func _on_car2_body_entered(body):
+	pass # Replace with function body.

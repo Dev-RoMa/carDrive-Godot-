@@ -1,11 +1,18 @@
 extends VehicleBody
 
 #vehicle variables
-#onready var muzzle = get_node("car/gun/muzzle")
+#variables for the rocket
 onready var muzzle = get_node("gun/muzzle")
 onready var rocket_scn = preload("res://rocket.tscn")
-var fire_rate = 1
-var can_fire = true
+var rfire_rate = 1
+var rcan_fire = true
+
+#variables for the firegun
+onready var tip = get_node("firegun/tip")
+onready var casing_scn = preload("res://casing.tscn")
+var gfire_rate = 0.2
+var gcan_fire = true
+
 
 #vehicle driving
 func _physics_process(delta):
@@ -22,11 +29,22 @@ func _process(delta):
 #vehicle weapons
 
 func _integrate_forces(state):
+	#for_rocket
 	if Input.is_action_pressed("pewpew"):
-		if can_fire == true:
+		if rcan_fire == true:
 			var rocket = rocket_scn.instance()
 			muzzle.add_child(rocket)
 			rocket.set_as_toplevel(true)
-			can_fire = false
-			yield(get_tree().create_timer(fire_rate),"timeout")
-			can_fire = true
+			rcan_fire = false
+			yield(get_tree().create_timer(rfire_rate),"timeout")
+			rcan_fire = true
+	if Input.is_action_pressed("pewgun"):
+		if gcan_fire == true:
+			var casing = casing_scn.instance()
+			tip.add_child(casing)
+			casing.set_as_toplevel(true)
+			gcan_fire = false
+			yield(get_tree().create_timer(gfire_rate),"timeout")
+			gcan_fire = true
+
+#inputs are gfire_rate 6& gcan_fire
