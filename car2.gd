@@ -1,26 +1,36 @@
 extends VehicleBody
 
-var health = 100
-var nhealth = 0
+var cur_hit = 10
+var max_hit = 10
 
+var max_rpm = 500
+var max_torque = 200
 
-#vehicle driving
 func _physics_process(delta):
-		steering = Input.get_axis("left2","right2") * 0.4
-		engine_force = Input.get_axis("back2","forward2") * 100
-		if health == 0:
-			engine_force = 0
+	steering = lerp(steering, Input.get_axis("left2","right2")* 0.4, 5*delta)
+	var acceleration = Input.get_axis("back2","forward2")
+	var rpm = $rear_left_wheel.get_rpm()
+	$rear_left_wheel.engine_force = acceleration * max_torque * ( 1 - rpm/max_rpm)
+	rpm = $rear_right_wheel.get_rpm()
+	$rear_right_wheel.engine_force = acceleration * max_torque * ( 1 - rpm/max_rpm)
+#	#dead_car
+	if cur_hit <= 0:
+		engine_force = 0
 
-#vehicle cameras
-func _process(delta):
+##vehicle cameras
+func _process(_delta):
 	if Input.is_action_just_pressed("changeCamera2"):
 		$Camera.set_current(true)
 
 
-func _on_car2_body_entered(body):
-	pass # Replace with function body.
+#------------------------------------------------
 
 
+#
+
+
+
+#------------------------------------------------
 #onready var health = max_health setget _set_health
 #signal health_updated(health)
 #signal killed()
