@@ -12,3 +12,7 @@ V.6 -- added bullet detection to the van
 V.7 -- add testing area such as jumps and other specialty objects
     -- add health to the sedan ,once hp == 0 car stop moving
     -- add explosion on kill
+
+V.7 -- added testing area, one jump, road with sidewalks and two buildings
+    -- the sedan (car 2) has health now, u can kill it with enough pews pews or a few rocket blasts
+    --> explosion on kill yet not added

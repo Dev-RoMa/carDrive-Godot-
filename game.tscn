@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://Dark/texture_13.png" type="Texture" id=1]
 [ext_resource path="res://car.gd" type="Script" id=2]
 [ext_resource path="res://b13.glb" type="PackedScene" id=3]
 [ext_resource path="res://car2.gd" type="Script" id=4]
 [ext_resource path="res://best.dae" type="PackedScene" id=5]
+[ext_resource path="res://Dark/texture_01.png" type="Texture" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_world_triplanar = true
@@ -47,16 +48,124 @@ size = Vector3( 0.1, 0.1, 2 )
 [sub_resource type="BoxShape" id=13]
 extents = Vector3( 1.17739, 1.61693, 4.23908 )
 
+[sub_resource type="SpatialMaterial" id=19]
+albedo_texture = ExtResource( 6 )
+
 [sub_resource type="CubeMesh" id=14]
+material = SubResource( 19 )
 size = Vector3( 250, 125, 2 )
 
 [sub_resource type="PhysicsMaterial" id=15]
 
 [sub_resource type="BoxShape" id=16]
 
+[sub_resource type="SpatialMaterial" id=20]
+albedo_texture = ExtResource( 6 )
+
 [sub_resource type="CubeMesh" id=17]
+material = SubResource( 20 )
 
 [sub_resource type="BoxShape" id=18]
+
+[sub_resource type="CylinderMesh" id=21]
+
+[sub_resource type="CylinderShape" id=23]
+
+[sub_resource type="CubeMesh" id=22]
+
+[sub_resource type="BoxShape" id=24]
+
+[sub_resource type="CubeMesh" id=25]
+
+[sub_resource type="BoxShape" id=26]
+
+[sub_resource type="CubeMesh" id=33]
+
+[sub_resource type="BoxShape" id=43]
+
+[sub_resource type="CubeMesh" id=34]
+
+[sub_resource type="BoxShape" id=44]
+
+[sub_resource type="CubeMesh" id=35]
+
+[sub_resource type="BoxShape" id=45]
+
+[sub_resource type="CubeMesh" id=36]
+
+[sub_resource type="BoxShape" id=46]
+
+[sub_resource type="CubeMesh" id=37]
+
+[sub_resource type="BoxShape" id=47]
+
+[sub_resource type="CubeMesh" id=38]
+
+[sub_resource type="BoxShape" id=48]
+
+[sub_resource type="CubeMesh" id=39]
+
+[sub_resource type="BoxShape" id=49]
+
+[sub_resource type="CubeMesh" id=40]
+
+[sub_resource type="BoxShape" id=50]
+
+[sub_resource type="CubeMesh" id=41]
+
+[sub_resource type="BoxShape" id=51]
+
+[sub_resource type="CubeMesh" id=42]
+
+[sub_resource type="BoxShape" id=52]
+
+[sub_resource type="CubeMesh" id=53]
+
+[sub_resource type="BoxShape" id=56]
+
+[sub_resource type="CubeMesh" id=54]
+
+[sub_resource type="BoxShape" id=57]
+
+[sub_resource type="CubeMesh" id=55]
+
+[sub_resource type="BoxShape" id=58]
+
+[sub_resource type="BoxShape" id=59]
+
+[sub_resource type="BoxShape" id=60]
+
+[sub_resource type="BoxShape" id=61]
+
+[sub_resource type="CubeMesh" id=27]
+
+[sub_resource type="BoxShape" id=28]
+
+[sub_resource type="CubeMesh" id=29]
+
+[sub_resource type="BoxShape" id=30]
+
+[sub_resource type="CubeMesh" id=31]
+
+[sub_resource type="BoxShape" id=32]
+
+[sub_resource type="CubeMesh" id=62]
+
+[sub_resource type="CubeMesh" id=63]
+
+[sub_resource type="CubeMesh" id=64]
+
+[sub_resource type="CubeMesh" id=65]
+
+[sub_resource type="BoxShape" id=68]
+
+[sub_resource type="CubeMesh" id=66]
+
+[sub_resource type="BoxShape" id=69]
+
+[sub_resource type="CubeMesh" id=67]
+
+[sub_resource type="BoxShape" id=70]
 
 [node name="game" type="Spatial"]
 
@@ -151,8 +260,8 @@ skeleton = NodePath("../gun")
 [node name="tip" type="Position3D" parent="car/firegun"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.79061 )
 
-[node name="car2" type="VehicleBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85331, 1.32859, 0 )
+[node name="car2" type="VehicleBody" parent="." groups=["Enemies"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5717, 1.32859, -53.051 )
 script = ExtResource( 4 )
 
 [node name="b13" parent="car2" instance=ExtResource( 3 )]
@@ -163,7 +272,7 @@ transform = Transform( 1.3, 0, 0, 0, 1.071, 0, 0, 0, 1.7, 0.129885, 0.27935, 0.0
 shape = SubResource( 5 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="car2"]
-transform = Transform( 1.2, 0, 0, 0, 1.5, 0, 0, 0, 1.1, 0.0413342, 0.825741, -0.255652 )
+transform = Transform( 1.277, 0, 0, 0, 1.5, 0, 0, 0, 0.962, 0.114389, 0.839458, -0.255652 )
 shape = SubResource( 5 )
 
 [node name="front_left_wheel" type="VehicleWheel" parent="car2"]
@@ -202,7 +311,7 @@ damping_relaxation = 2.0
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 7 )
 
-[node name="rear_right_wheel2" type="VehicleWheel" parent="car2"]
+[node name="rear_right_wheel" type="VehicleWheel" parent="car2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.580119, 0.00677395, -1.24913 )
 use_as_traction = true
 wheel_radius = 0.4
@@ -210,12 +319,12 @@ suspension_stiffness = 50.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
-[node name="MeshInstance" type="MeshInstance" parent="car2/rear_right_wheel2"]
+[node name="MeshInstance" type="MeshInstance" parent="car2/rear_right_wheel"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 7 )
 
 [node name="Camera" type="Camera" parent="car2"]
-transform = Transform( -1, -5.01437e-08, 7.16125e-08, 0, 0.819152, 0.573577, -8.74228e-08, 0.573577, -0.819152, 0, 2, -3.911 )
+transform = Transform( -1, 3.69464e-08, -7.9232e-08, 0, 0.906308, 0.422618, 8.74228e-08, 0.422618, -0.906308, 0, 2, -4.48836 )
 
 [node name="RigidBody" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43017, 1.7792, 0 )
@@ -321,10 +430,614 @@ mesh = SubResource( 17 )
 shape = SubResource( 18 )
 
 [node name="wallw" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 10, 0, 0, 0, 125, 124, 10, 0 )
+transform = Transform( 1, 0, 0, 0, 10, 0, 0, 0, 125, 123.763, 10, 0 )
 mesh = SubResource( 17 )
 
 [node name="StaticBody" type="StaticBody" parent="wallw"]
 
 [node name="CollisionShape" type="CollisionShape" parent="wallw/StaticBody"]
 shape = SubResource( 18 )
+
+[node name="objects" type="Node" parent="."]
+
+[node name="building_circular" type="MeshInstance" parent="objects"]
+transform = Transform( 4, 0, 0, 0, 10, 0, 0, 0, 4, 75.596, 9.1657, 79.3031 )
+mesh = SubResource( 21 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/building_circular"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/building_circular/StaticBody"]
+shape = SubResource( 23 )
+
+[node name="building_regular" type="MeshInstance" parent="objects"]
+transform = Transform( 4, 0, 0, 0, 10, 0, 0, 0, 4, 0, 10, 70 )
+mesh = SubResource( 22 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/building_regular"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/building_regular/StaticBody"]
+shape = SubResource( 24 )
+
+[node name="ramp" type="MeshInstance" parent="objects"]
+transform = Transform( 1, 0, 0, 0, 1.69047, -0.906308, 0, 3.62523, 0.422618, 0, 0.0636013, 25.5809 )
+mesh = SubResource( 25 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody" type="StaticBody" parent="objects/ramp"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/ramp/StaticBody"]
+shape = SubResource( 26 )
+
+[node name="intersection" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3.2, 66.3114, 0, 67.2363 )
+mesh = SubResource( 33 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/sidewalk1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/sidewalk1/StaticBody"]
+shape = SubResource( 43 )
+
+[node name="road1" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 10, 61.3123, 0, 59.7582 )
+mesh = SubResource( 34 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/road1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/road1/StaticBody"]
+shape = SubResource( 44 )
+
+[node name="road2" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( -1.74846e-07, 0, 10, 0, 0.6, 0, -4, 0, -4.37114e-07, 61.312, 0, 60 )
+mesh = SubResource( 35 )
+skeleton = NodePath("../road1")
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/road2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/road2/StaticBody"]
+shape = SubResource( 45 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3.2, 56.3123, 0, 67.2762 )
+mesh = SubResource( 36 )
+skeleton = NodePath("../../..")
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/sidewalk2/StaticBody"]
+shape = SubResource( 46 )
+
+[node name="sidewalk3" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3.2, 56.3123, 0, 52.7142 )
+mesh = SubResource( 37 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/sidewalk3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/sidewalk3/StaticBody"]
+shape = SubResource( 47 )
+
+[node name="sidewalk4" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3.2, 66.3123, 0, 52.7142 )
+mesh = SubResource( 38 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/sidewalk4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/sidewalk4/StaticBody"]
+shape = SubResource( 48 )
+
+[node name="sidewalk5" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( -4.37114e-08, 0, 3.2, 0, 1, 0, -1, 0, -1.39876e-07, 68.51, 0, 65 )
+mesh = SubResource( 39 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/sidewalk5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/sidewalk5/StaticBody"]
+shape = SubResource( 49 )
+
+[node name="sidewalk6" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( -4.37114e-08, 0, 3.2, 0, 1, 0, -1, 0, -1.39876e-07, 68.487, 0, 55 )
+mesh = SubResource( 40 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/sidewalk6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/sidewalk6/StaticBody"]
+shape = SubResource( 50 )
+
+[node name="sidewalk7" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( -4.37114e-08, 0, 3.2, 0, 1, 0, -1, 0, -1.39876e-07, 54.092, 0, 55 )
+mesh = SubResource( 41 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/sidewalk7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/sidewalk7/StaticBody"]
+shape = SubResource( 51 )
+
+[node name="sidewalk8" type="MeshInstance" parent="objects/intersection"]
+transform = Transform( -4.37114e-08, 0, 3.2, 0, 1, 0, -1, 0, -1.39876e-07, 54.098, 0, 65 )
+mesh = SubResource( 42 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/intersection/sidewalk8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/intersection/sidewalk8/StaticBody"]
+shape = SubResource( 52 )
+
+[node name="largeRoad1" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/largeRoad1"]
+transform = Transform( -4.37114e-08, 0, 50, 0, 1, 0, -1, 0, -2.18557e-06, 2.03, 0, 55 )
+mesh = SubResource( 53 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad1/sidewalk1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad1/sidewalk1/StaticBody"]
+shape = SubResource( 56 )
+
+[node name="road" type="MeshInstance" parent="objects/largeRoad1"]
+transform = Transform( -1.74846e-07, 0, 50, 0, 0.6, 0, -4, 0, -2.18557e-06, 2.03, 0, 60 )
+mesh = SubResource( 54 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad1/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad1/road/StaticBody"]
+shape = SubResource( 57 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/largeRoad1"]
+transform = Transform( -4.37114e-08, 0, 50, 0, 1, 0, -1, 0, -2.18557e-06, 2.098, -0.058, 65 )
+mesh = SubResource( 55 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad1/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad1/sidewalk2/StaticBody"]
+shape = SubResource( 58 )
+
+[node name="largeRoad2" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/largeRoad2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 50, 66.2998, 0, 0 )
+mesh = SubResource( 53 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad2/sidewalk1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad2/sidewalk1/StaticBody"]
+shape = SubResource( 59 )
+
+[node name="road" type="MeshInstance" parent="objects/largeRoad2"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 50, 61.2998, 0, 0 )
+mesh = SubResource( 54 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad2/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad2/road/StaticBody"]
+shape = SubResource( 60 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/largeRoad2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 50, 56.267, 0, 0 )
+mesh = SubResource( 55 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad2/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad2/sidewalk2/StaticBody"]
+shape = SubResource( 61 )
+
+[node name="roadMedium" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/roadMedium"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, -10, 0, 0 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/roadMedium/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/roadMedium/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/roadMedium"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, -20, 0, 0 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/roadMedium/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/roadMedium/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/roadMedium"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 5, -15, 0, 0 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/roadMedium/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/roadMedium/road/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="shortRoad" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/shortRoad"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.5, -10, 0, -17.2867 )
+mesh = SubResource( 62 )
+
+[node name="road" type="MeshInstance" parent="objects/shortRoad"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 2.5, -15, 0, -17.2867 )
+mesh = SubResource( 63 )
+skeleton = NodePath("../sidewalk1")
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/shortRoad"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.5, -20, 0, -17.2867 )
+mesh = SubResource( 64 )
+skeleton = NodePath("../road")
+
+[node name="longRoad" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/longRoad"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -10, 0, 31 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/longRoad"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -20, 0, 31 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/longRoad"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 10, -15, 0, 31 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad/road/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="Lroad" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/Lroad"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, -20.026, 0, 46 )
+mesh = SubResource( 65 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad/sidewalk1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad/sidewalk1/StaticBody"]
+shape = SubResource( 68 )
+
+[node name="road" type="MeshInstance" parent="objects/Lroad"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 4, -15.093, 0, 45 )
+mesh = SubResource( 66 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad/road/StaticBody"]
+shape = SubResource( 69 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/Lroad"]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 50 )
+mesh = SubResource( 67 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad/sidewalk2/StaticBody"]
+shape = SubResource( 70 )
+
+[node name="Lroad2" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/Lroad2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, -56, 0, 60.9661 )
+mesh = SubResource( 65 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad2/sidewalk1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad2/sidewalk1/StaticBody"]
+shape = SubResource( 68 )
+
+[node name="road" type="MeshInstance" parent="objects/Lroad2"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 4, -51.9, 0, 59.966 )
+mesh = SubResource( 66 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad2/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad2/road/StaticBody"]
+shape = SubResource( 69 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/Lroad2"]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1, -51.9, 0.001, 64.966 )
+mesh = SubResource( 67 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad2/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad2/sidewalk2/StaticBody"]
+shape = SubResource( 70 )
+
+[node name="longRoad2" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/longRoad2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -47, 0, 46.12 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad2/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad2/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/longRoad2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -56.005, 0, 46.12 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad2/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad2/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/longRoad2"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 10, -51.9, 0, 46.12 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad2/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad2/road/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="longRoad3" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/longRoad3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -47, 0, 26.059 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad3/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad3/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/longRoad3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -56.005, 0, 26.059 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad3/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad3/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/longRoad3"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 10, -51.9, 0, 26.059 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad3/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad3/road/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="longRoad4" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/longRoad4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -47, 0, 6.1643 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad4/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad4/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/longRoad4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -56.005, 0, 6.1643 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad4/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad4/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/longRoad4"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 10, -51.9, 0, 6.1643 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad4/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad4/road/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="longRoad5" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/longRoad5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -47, 0, -13.9061 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad5/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad5/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/longRoad5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -56.005, 0, -13.9061 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad5/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad5/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/longRoad5"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 10, -51.9, 0, -13.9061 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad5/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad5/road/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="Lroad3" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/Lroad3"]
+transform = Transform( -4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, 62.1492, 0, -58.2567 )
+mesh = SubResource( 65 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad3/sidewalk1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad3/sidewalk1/StaticBody"]
+shape = SubResource( 68 )
+
+[node name="road" type="MeshInstance" parent="objects/Lroad3"]
+transform = Transform( -1.74846e-07, 0, 4, 0, 0.6, 0, -4, 0, -1.74846e-07, 61.3026, 0, -53.5842 )
+mesh = SubResource( 66 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad3/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad3/road/StaticBody"]
+shape = SubResource( 69 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/Lroad3"]
+transform = Transform( -1.74846e-07, 0, 1, 0, 1, 0, -4, 0, -4.37114e-08, 66.309, 0, -53.7969 )
+mesh = SubResource( 67 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad3/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad3/sidewalk2/StaticBody"]
+shape = SubResource( 70 )
+
+[node name="largeRoad3" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/largeRoad3"]
+transform = Transform( -4.37114e-08, 0, 50, 0, 1, 0, -1, 0, -2.18557e-06, 7.31268, 0, -58.5638 )
+mesh = SubResource( 53 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad3/sidewalk1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad3/sidewalk1/StaticBody"]
+shape = SubResource( 56 )
+
+[node name="road" type="MeshInstance" parent="objects/largeRoad3"]
+transform = Transform( -1.74846e-07, 0, 50, 0, 0.6, 0, -4, 0, -2.18557e-06, 7.31268, 0, -53.5638 )
+mesh = SubResource( 54 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad3/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad3/road/StaticBody"]
+shape = SubResource( 57 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/largeRoad3"]
+transform = Transform( -4.37114e-08, 0, 50, 0, 1, 0, -1, 0, -2.18557e-06, 7.38068, -0.058, -48.5638 )
+mesh = SubResource( 55 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/largeRoad3/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/largeRoad3/sidewalk2/StaticBody"]
+shape = SubResource( 58 )
+
+[node name="Lroad4" type="Node" parent="objects"]
+
+[node name="sidewalk1" type="MeshInstance" parent="objects/Lroad4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, -54.1616, 0, -54.5834 )
+mesh = SubResource( 65 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad4/sidewalk1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad4/sidewalk1/StaticBody"]
+shape = SubResource( 68 )
+
+[node name="road" type="MeshInstance" parent="objects/Lroad4"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 4, -50.0616, 0, -53.5852 )
+mesh = SubResource( 66 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad4/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad4/road/StaticBody"]
+shape = SubResource( 69 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/Lroad4"]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1, -50.0616, 0.001, -58.3203 )
+mesh = SubResource( 67 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/Lroad4/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/Lroad4/sidewalk2/StaticBody"]
+shape = SubResource( 70 )
+
+[node name="roadMedium2" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/roadMedium2"]
+transform = Transform( -4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, -40.3767, 0, -58.3259 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/roadMedium2/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/roadMedium2/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/roadMedium2"]
+transform = Transform( -4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, -40.5492, 0, -48.6176 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/roadMedium2/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/roadMedium2/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/roadMedium2"]
+transform = Transform( -1.74846e-07, 0, 5, 0, 0.6, 0, -4, 0, -2.18557e-07, -40.4256, 0, -53.5298 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/roadMedium2/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/roadMedium2/road/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="longRoad6" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/longRoad6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -46.5196, 0, -33.2095 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad6/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad6/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/longRoad6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -56.5196, 0, -33.2095 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad6/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad6/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/longRoad6"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 10, -51.5196, 0, -33.2095 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad6/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad6/road/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="longRoad7" type="Node" parent="objects"]
+
+[node name="sidewalk" type="MeshInstance" parent="objects/longRoad7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -46.5196, 0, -39.4777 )
+mesh = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad7/sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad7/sidewalk/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="sidewalk2" type="MeshInstance" parent="objects/longRoad7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -56.5196, 0, -39.4777 )
+mesh = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad7/sidewalk2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad7/sidewalk2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="road" type="MeshInstance" parent="objects/longRoad7"]
+transform = Transform( 4, 0, 0, 0, 0.6, 0, 0, 0, 10, -51.5196, 0, -39.4777 )
+mesh = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="objects/longRoad7/road"]
+
+[node name="CollisionShape" type="CollisionShape" parent="objects/longRoad7/road/StaticBody"]
+shape = SubResource( 32 )
