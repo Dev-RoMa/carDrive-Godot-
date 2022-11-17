@@ -9,11 +9,11 @@ var harass = false
 #player escape event
 var player_escape = false
 #face direction of player
-onready var target = get_parent().get_node("Player")
+onready var target = get_parent().get_node("car")
 var rot_speed = 0.05
 #map navigation
 onready var agent : NavigationAgent = $NavigationAgent
-onready var target_location : Node = $"res://car.gd"
+onready var target_location : Node = $"res://car"
 var speed = 5
 var minimum_speed = 3
 var idle_speed = rand_range(minimum_speed, speed)
@@ -21,13 +21,13 @@ var move_or_not = [true, false]
 var start_move = move_or_not[randi() % move_or_not.size()]
 
 func _on_Area_body_entered(body):
- if body.name == ("Player"):
+ if body.name == ("car"):
   rot_speed = 0.1
   harass = true
 
 func _process(delta):
  if harass == true:
-  if $"../Player" != null:
+  if $"res://car" != null:
    #face direction of player
    var global_pos = self.global_transform.origin
    var target_pos = target.global_transform.origin
@@ -62,7 +62,7 @@ func _process(delta):
   move_and_collide(-global_transform.basis.y.normalized() * gravity * delta)
 
 func _on_Area_body_exited(body):
- if body.name == ("Player"):
+ if body.name == ("car"):
   rot_speed = 0.05
   harass = false
   #when player escape enemy wait and look at player
