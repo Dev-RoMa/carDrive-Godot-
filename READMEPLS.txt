@@ -16,3 +16,8 @@ V.7 -- add testing area such as jumps and other specialty objects
 V.7 -- added testing area, one jump, road with sidewalks and two buildings
     -- the sedan (car 2) has health now, u can kill it with enough pews pews or a few rocket blasts
     --> explosion on kill yet not added
+
+V.8 
+    -- ADDED AN ENEMY, IT WILL GO ALWAYS TO THE TOP LEFT CORNER FOR SOME REASON
+    -- ENEMY HAS COLLISSIONS
+    -- THE ENEMY DOESNT GIVES A F ABOUT YOU YOU WILL BE CRUSHED
