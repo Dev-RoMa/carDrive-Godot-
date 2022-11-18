@@ -1,6 +1,6 @@
 extends Area
 
-var damage = 2
+var damage = 10
 
 func _physics_process(delta):
 	translation += get_transform().basis.z*50*delta

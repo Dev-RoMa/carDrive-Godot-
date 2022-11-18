@@ -1,4 +1,9 @@
 extends KinematicBody
+
+#health and hit system
+var cur_hit = 10
+var max_hit = 10
+
 #gravity
 var gravity = 15
 #idle rotation
@@ -9,11 +14,11 @@ var harass = false
 #player escape event
 var player_escape = false
 #face direction of player
-onready var target = get_parent().get_node("car")
+onready var target = get_parent().get_node("Player")
 var rot_speed = 0.05
 #map navigation
 onready var agent : NavigationAgent = $NavigationAgent
-onready var target_location : Node = $"res://car"
+onready var target_location : Node = $"../Player"
 var speed = 5
 var minimum_speed = 3
 var idle_speed = rand_range(minimum_speed, speed)
@@ -21,13 +26,13 @@ var move_or_not = [true, false]
 var start_move = move_or_not[randi() % move_or_not.size()]
 
 func _on_Area_body_entered(body):
- if body.name == ("car"):
+ if body.name == ("Player"):
   rot_speed = 0.1
   harass = true
 
 func _process(delta):
  if harass == true:
-  if $"res://car" != null:
+  if $"../Player" != null:
    #face direction of player
    var global_pos = self.global_transform.origin
    var target_pos = target.global_transform.origin
@@ -62,7 +67,7 @@ func _process(delta):
   move_and_collide(-global_transform.basis.y.normalized() * gravity * delta)
 
 func _on_Area_body_exited(body):
- if body.name == ("car"):
+ if body.name == ("Player"):
   rot_speed = 0.05
   harass = false
   #when player escape enemy wait and look at player
@@ -87,3 +92,49 @@ func _on_NavigationAgent_velocity_computed(safe_velocity):
 func _on_Timer2_timeout():
  #enemy going back to idle action
  player_escape = false
+
+
+func _on_NavigationAgent_navigation_finished():
+	pass # Replace with function body.
+
+
+func _on_NavigationAgent_path_changed():
+	pass # Replace with function body.
+
+
+func _on_NavigationAgent_target_reached():
+	pass # Replace with function body.
+
+
+func _on_Area_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_Area_area_exited(area):
+	pass # Replace with function body.
+
+
+func _on_Area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	pass # Replace with function body.
+
+
+func _on_Area_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
+	pass # Replace with function body.
+
+
+func _on_Area_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	pass # Replace with function body.
+
+
+func _on_Area_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	pass # Replace with function body.
+
+
+func _on_Area_gameplay_entered():
+	pass # Replace with function body.
+
+
+func _physics_process(delta):
+#	#dead_car
+	if cur_hit <= 0:
+		speed = 0

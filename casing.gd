@@ -11,7 +11,7 @@ func _on_casing_body_entered(body):
 		body.cur_hit -= damage
 		queue_free()
 	#knockback
-	if body.get_class() == "RigidBody" || body.get_class() == "StaticBody" || body.get_class()== "VehicleBody":
+	if body.get_class() == "RigidBody" || body.get_class() == "StaticBody" || body.get_class()== "VehicleBody" || body.get_class()=="KinematicBody":
 		$knockback.monitoring = true
 
 func _on_knockback_body_entered(body):
